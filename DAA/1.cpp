@@ -2,18 +2,6 @@
 #include<vector>
 using namespace std;
 
-// void fibonacci(int num){
-//     int n1=0,n2=1;
-//     int res;
-//     cout<<n1<< " "<<n2<<" ";
-//     for(int i=1;i<num;i++){
-//         res = n1+n2;
-//         cout<<res<<" ";
-//         n1=n2;
-//         n2=res;
-//     }
-// }
-
 int fib_itr(int num){
     if(num<=1) return num;
     vector<int> n(num+1);
@@ -52,11 +40,34 @@ int count_steps_itr(int n){
 
 int main(){
 
-// fibonacci(5);
-cout<<fib_itr(5)<<endl;
-cout<<count_steps_itr(5)<<endl;
-cout<<fib_recursive(5)<<endl;
-cout<<count_steps_rec(5)<<endl;
-
+ int n;
+    cout << "Enter the length of series: ";
+    cin >> n;
+    int choice = 1;
+    do
+    {
+        cout << "***Enter your choice***" << endl;
+        cout << "[1] Recursive" << endl;
+        cout << "[2] Iterative" << endl;
+        cout << "[3] ESC" << endl;
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+        {
+            cout<<"fibonacci series: "<<fib_recursive(n)<<endl;
+            cout<<"step count of recursive function: "<<count_steps_rec(n)<<endl;
+            break;
+        }
+        case 2:
+        {
+            cout<<"fibonacci series: "<<fib_itr(n)<<endl;
+            cout<<"step count of recursive function: "<<count_steps_itr(n)<<endl;;
+            break;
+        }
+        default:
+            break;
+        }
+    } while (choice != 3);
     return 0;
 }
